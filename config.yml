@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  accelq: accelq/accelq@1.0.1  # (replace with latest version)
+
+jobs:
+  run_accelq_tests:
+    docker:
+      - image: circleci/python:3.8  # or your preferred executor
+    steps:
+      - checkout
+      - accelq/run:
+          url: $ACCELQ_URL
+          userId: $ACCELQ_USER_ID
+          apiKey: $ACCELQ_API_KEY
+          tenantCode: $ACCELQ_TENANT_CODE
+          jobId: "86295"
+          
